@@ -27,7 +27,7 @@ onMounted(() => {
 <template>
   <div>
     <div>
-      <UserList :users="users" />
+      <UserList :users=users />
     </div>
   </div>
   <div class="content">

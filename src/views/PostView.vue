@@ -10,14 +10,18 @@ const posts = ref([])
 const route = useRoute() 
 
 async function getPosts(){
-  user.value = route.params.user 
-  /*  add your code here */
+  posts.value = []
+  user.value = route.params.user
+  const postRef = collection(db, "posts");
+  const qry = query(postRef, where("user","==",user.value));
+  console.log(qry)
 }
 
 watch( () => route.params.user, getPosts)
 
 onMounted(() => {
   getPosts() 
+  console.log(user.value)
 })
 
 </script>
